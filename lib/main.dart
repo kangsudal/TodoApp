@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-
   final String title;
 
   @override
@@ -30,46 +29,62 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      color: Colors.yellow,
-      home: DefaultTabController(
-        length: 4,
-        child: new Scaffold(
-          body: TabBarView(
-            children: [
-              new Container(
-                color: Colors.yellow,
+        color: Colors.yellow,
+        home: SafeArea(
+          child: DefaultTabController(
+            length: 4,
+            child: new Scaffold(
+              body: Stack(
+                children: <Widget>[
+                  TabBarView(
+                    children: [
+                      new Container(
+                        color: Colors.yellow,
+                      ),
+                      new Container(
+                        color: Colors.orange,
+                      ),
+                      new Container(
+                        color: Colors.lightGreen,
+                      ),
+                      new Container(
+                        color: Colors.red,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 160,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:
+                            BorderRadius.only(bottomLeft: Radius.circular(50),bottomRight: Radius.circular(50))),
+                  )
+                ],
               ),
-              new Container(color: Colors.orange,),
-              new Container(
-                color: Colors.lightGreen,
+              appBar: new TabBar(
+                tabs: [
+                  Tab(
+                    icon: new Icon(Icons.home),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.rss_feed),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.perm_identity),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.settings),
+                  )
+                ],
+                labelColor: Colors.yellow,
+                unselectedLabelColor: Colors.blue,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+                indicatorColor: Colors.blue,
               ),
-              new Container(
-                color: Colors.red,
-              ),
-            ],
+              backgroundColor: Colors.white,
+            ),
           ),
-          bottomNavigationBar: new TabBar(
-            tabs: [
-              Tab(
-                icon: new Icon(Icons.home),
-              ),
-              Tab(
-                icon: new Icon(Icons.rss_feed),
-              ),
-              Tab(
-                icon: new Icon(Icons.perm_identity),
-              ),
-              Tab(icon: new Icon(Icons.settings),)
-            ],
-            labelColor: Colors.yellow,
-            unselectedLabelColor: Colors.blue,
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorPadding: EdgeInsets.all(5.0),
-            indicatorColor: Colors.red,
-          ),
-          backgroundColor: Colors.black,
-        ),
-      )
-    );
+        ));
   }
 }
