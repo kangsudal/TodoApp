@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/UI/intray_page.dart';
 
 import 'models/globa.dart';
 
@@ -40,9 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   TabBarView(
                     children: [
-                      new Container(
-                        color: coralColor,
-                      ),
+                      new IntrayPage(),
                       new Container(
                         color: pinkColor,
                       ),
