@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'models/globa.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -39,10 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   TabBarView(
                     children: [
                       new Container(
-                        color: Colors.yellow,
+                        color: coralColor,
                       ),
                       new Container(
-                        color: Colors.orange,
+                        color: pinkColor,
                       ),
                       new Container(
                         color: Colors.lightGreen,
@@ -53,12 +55,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                   Container(
+                    padding: EdgeInsets.only(left: 40),
                     height: 160,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(50),bottomRight: Radius.circular(50))),
-                  )
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(50),
+                            bottomRight: Radius.circular(50))),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Intray", style: intrayTitleStyle),
+                          Container()
+                        ]),
+                  ),
+                  Container(
+                    width: 80,
+                    height: 80,
+                    child: FloatingActionButton(
+                      backgroundColor: darkGreyColor,
+                      onPressed: () {},
+                      child: Icon(Icons.add,size: 60,),
+                    ),
+                    margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.4,top: 120,),
+                  ),
                 ],
               ),
               appBar: new TabBar(
